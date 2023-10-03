@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Container from "../components/container";
 import Intro from "../components/intro";
-import Layout from "../components/layout";
+import LayoutBlog from "../components/layout-blog";
 import MoreStories from "../components/more-stories";
 import Post from "../interfaces/post";
 import { getAllPosts } from "../lib/api";
@@ -13,17 +13,15 @@ type Props = {
 
 export default function Blog({ allPosts }: Props) {
   return (
-    <Layout dir="rtl" className={ahang.className}>
+    <LayoutBlog dir="rtl" className={ahang.className}>
       <Head>
         <title>{"یادداشت های بهزاد علی محمدزاد"}</title>
       </Head>
       <Container>
-        <div className="max-w-screen-md mx-auto py-20">
-          <Intro />
-          {allPosts.length > 0 && <MoreStories posts={allPosts} />}
-        </div>
+        <Intro />
+        {allPosts.length > 0 && <MoreStories posts={allPosts} />}
       </Container>
-    </Layout>
+    </LayoutBlog>
   );
 }
 

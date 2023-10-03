@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Container from "../../components/container";
 import Header from "../../components/header";
-import Layout from "../../components/layout";
+import LayoutBlog from "../../components/layout-blog";
 import PostBody from "../../components/post-body";
 import PostHeader from "../../components/post-header";
 import PostTitle from "../../components/post-title";
@@ -23,7 +23,7 @@ export default function Post({ post }: Props) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout dir="rtl" className={ahang.className}>
+    <LayoutBlog dir="rtl" className={ahang.className}>
       <Container>
         <Header />
         {router.isFallback ? (
@@ -41,7 +41,7 @@ export default function Post({ post }: Props) {
           </>
         )}
       </Container>
-    </Layout>
+    </LayoutBlog>
   );
 }
 
