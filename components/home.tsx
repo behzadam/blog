@@ -29,11 +29,11 @@ export default function Home() {
             <span>Behzad</span>
           </h1>
           <Image
-            src="/assets/avatar.jpeg"
-            width={80}
-            height={80}
+            src="/assets/avatar.png"
+            width={50}
+            height={50}
             alt="Behzad Ali Mohammad Zad"
-            className="rounded-full drop-shadow-xl grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all"
+            className="rounded-full drop-shadow-xl grayscale opacity-60 hover:opacity-100 transition-all"
           />
         </div>
         <h2 className="tk-ivypresto-display text-6xl md:text-8xl flex flex-col tracking-wide">
