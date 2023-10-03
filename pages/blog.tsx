@@ -1,42 +1,31 @@
 import Head from "next/head";
 import Container from "../components/container";
-import HeroPost from "../components/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import MoreStories from "../components/more-stories";
 import Post from "../interfaces/post";
 import { getAllPosts } from "../lib/api";
-import { CMS_NAME } from "../lib/constants";
 
 type Props = {
   allPosts: Post[];
 };
 
 export default function Blog({ allPosts }: Props) {
-  const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
   return (
-    <>
+    <div dir="rtl">
       <Layout>
         <Head>
-          <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+          <title>{"یادداشت های بهزاد علی محمدزاد"}</title>
         </Head>
         <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          <div className="max-w-screen-md mx-auto py-20">
+            <Intro />
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          </div>
         </Container>
       </Layout>
-    </>
+    </div>
   );
 }
 
