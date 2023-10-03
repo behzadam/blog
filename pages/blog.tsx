@@ -5,39 +5,30 @@ import Layout from "../components/layout";
 import MoreStories from "../components/more-stories";
 import Post from "../interfaces/post";
 import { getAllPosts } from "../lib/api";
+import { ahang } from "../lib/fonts";
 
 type Props = {
   allPosts: Post[];
 };
 
 export default function Blog({ allPosts }: Props) {
-  const morePosts = allPosts.slice(1);
   return (
-    <div dir="rtl">
-      <Layout>
-        <Head>
-          <title>{"یادداشت های بهزاد علی محمدزاد"}</title>
-        </Head>
-        <Container>
-          <div className="max-w-screen-md mx-auto py-20">
-            <Intro />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-          </div>
-        </Container>
-      </Layout>
-    </div>
+    <Layout dir="rtl" className={ahang.className}>
+      <Head>
+        <title>{"یادداشت های بهزاد علی محمدزاد"}</title>
+      </Head>
+      <Container>
+        <div className="max-w-screen-md mx-auto py-20">
+          <Intro />
+          {allPosts.length > 0 && <MoreStories posts={allPosts} />}
+        </div>
+      </Container>
+    </Layout>
   );
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    "title",
-    "date",
-    "slug",
-    "author",
-    "coverImage",
-    "excerpt",
-  ]);
+  const allPosts = getAllPosts(["title", "date", "slug", "excerpt"]);
 
   return {
     props: { allPosts },

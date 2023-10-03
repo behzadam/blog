@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ahang } from "../lib/fonts";
 import DateFormatter from "./date-formatter";
 
 type Props = {
@@ -10,8 +9,8 @@ type Props = {
 
 const PostPreview = ({ title, date, slug }: Props) => {
   return (
-    <article className={ahang.className}>
-      <h3 className="text-3xl mb-3 leading-snug">
+    <article className="py-4">
+      <h3 className="text-lg md:text-xl font-medium md:leading-relaxed">
         <Link
           as={`/posts/${slug}`}
           href="/posts/[slug]"
@@ -20,7 +19,7 @@ const PostPreview = ({ title, date, slug }: Props) => {
           {title}
         </Link>
       </h3>
-      <section className="text-sm mb-4">
+      <section className="text-xs leading-loose flex items-center text-neutral-600">
         <DateFormatter dateString={date} />
       </section>
     </article>

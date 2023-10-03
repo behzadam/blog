@@ -14,25 +14,23 @@ import markdownToHtml from "../../lib/markdownToHtml";
 
 type Props = {
   post: PostType;
-  morePosts: PostType[];
-  preview?: boolean;
 };
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post }: Props) {
   const router = useRouter();
   const title = `${post.title}`;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview}>
+    <Layout dir="rtl" className={ahang.className}>
       <Container>
         <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className={ahang.className} dir="rtl">
+            <article>
               <Head>
                 <title>{title}</title>
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
@@ -54,15 +52,7 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
-    "title",
-    "date",
-    "slug",
-    "author",
-    "content",
-    "ogImage",
-    "coverImage",
-  ]);
+  const post = getPostBySlug(params.slug, ["title", "date", "slug", "content"]);
   const content = await markdownToHtml(post.content || "");
 
   return {

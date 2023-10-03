@@ -1,15 +1,17 @@
+import { cn } from "../lib/utils";
 import Meta from "./meta";
 
 type Props = {
-  preview?: boolean;
   children: React.ReactNode;
+  className?: string;
+  dir?: "rtl" | "ltr";
 };
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, className, dir = "rtl" }: Props) => {
   return (
     <>
       <Meta />
-      <div className="min-h-screen">
+      <div className={cn("min-h-screen", className)} dir={dir}>
         <main>{children}</main>
       </div>
     </>
