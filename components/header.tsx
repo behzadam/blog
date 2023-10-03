@@ -14,7 +14,7 @@ const Header = () => {
         href="/blog"
         className="hover:underline text-neutral-700 hover:text-neutral-900 transition-colors delay-100 underline-offset-4"
       >
-        یادداشت ها
+        بازگشت به یادداشت ها
       </Link>
     </h2>
   );
