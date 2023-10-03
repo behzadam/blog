@@ -22,55 +22,51 @@ const socials = [
 
 export default function Home() {
   return (
-    <header className="min-h-screen relative bg-neutral-900 p-4 pt-32 md:p-0 md:place-content-center md:grid space-y-6">
-      <figure>
-        <div className="grid grid-flow-col items-center">
-          <h1 className="tk-ivypresto-display text-neutral-100 text-6xl md:text-8xl flex flex-col tracking-wide">
-            <span>Behzad</span>
-          </h1>
-          <Image
-            src="/assets/avatar.png"
-            width={50}
-            height={50}
-            alt="Behzad Ali Mohammad Zad"
-            className="rounded-full drop-shadow-xl grayscale opacity-60 hover:opacity-100 transition-all"
-          />
-        </div>
-        <h2 className="tk-ivypresto-display text-6xl md:text-8xl flex flex-col tracking-wide">
-          {" "}
-          <span className="text-sm md:text-lg tk-ivypresto-display">
-            <span className="text-neutral-700">//</span>
-            <span className="text-neutral-400">Ali Mohammad Zad</span>
-            <span className="text-neutral-700">//</span>
-            <span className="tk-brother-1816 text-xs text-neutral-400">
-              Senior Software Engineer
-            </span>
+    <header className="min-h-screen relative bg-neutral-900 grid place-content-center">
+      <section className="max-w-md px-4 md:px-0">
+        <Image
+          src="/assets/avatar.png"
+          width={45}
+          height={45}
+          alt="Behzad Ali Mohammad Zad"
+          className="rounded-full drop-shadow-xl grayscale opacity-60 mx-auto hover:opacity-100 transition-all"
+        />
+        <h1 className="tk-ivypresto-display text-neutral-100 text-5xl md:text-6xl text-center tracking-wide">
+          <span>Behzad</span>
+        </h1>
+        <h2 className="text-center tk-ivypresto-display my-2">
+          <span className="text-neutral-700">//</span>
+          <span className="text-neutral-400 px-2">Ali Mohammad Zad</span>
+          <span className="text-neutral-700">//</span>
+          <span className="tk-brother-1816 text-xs px-2 text-neutral-400 leading-relaxed">
+            Senior Software Engineer
           </span>
+          <span className="text-neutral-700">//</span>
         </h2>
-      </figure>
-      <nav className="tk-brother-1816 text-xs space-x-4 transition-colors delay-200 mt-2">
-        {socials.map((item) => (
-          <a
-            key={`nav-${item.title}`}
-            href={item.url}
-            className="text-green-400 hover:text-green-500 underline underline-offset-4"
-            target="_blank"
+        <nav className="tk-brother-1816 text-xs flex justify-between max-w-sm mx-auto transition-colors delay-200 mt-2">
+          {socials.map((item) => (
+            <a
+              key={`nav-${item.title}`}
+              href={item.url}
+              className="text-green-400 hover:text-green-500 underline underline-offset-4"
+              target="_blank"
+            >
+              {item.title}
+            </a>
+          ))}
+          <Link
+            className="text-yellow-400 hover:text-yellow-500 underline underline-offset-4"
+            href="/blog"
           >
-            {item.title}
-          </a>
-        ))}
-        <Link
-          className="text-yellow-400 hover:text-yellow-500 underline underline-offset-4"
-          href="/blog"
-        >
-          Blog in Persian
-        </Link>
-      </nav>
-      <p className="max-w-md my-4 text-neutral-400 leading-relaxed text-sm">
-        I am software engineer with 10 years of professional experience
-        developing end-to-end software solutions, primarily in front-end
-        engineering. Also, I am a hiker and photography lover.
-      </p>
+            Blog in Persian
+          </Link>
+        </nav>
+        <p className="max-w-md my-4 text-neutral-400 leading-relaxed tk-brother-1816 text-sm">
+          I am software engineer with 10 years of professional experience
+          developing end-to-end software solutions, primarily in front-end
+          engineering. Also, I am a hiker and photography lover.
+        </p>
+      </section>
     </header>
   );
 }
