@@ -22,7 +22,7 @@ const socials = [
 
 export default function Home() {
   return (
-    <header className="min-h-screen relative bg-neutral-900 place-content-center grid">
+    <header className="min-h-screen relative bg-neutral-900 p-4 pt-32 md:p-0 md:place-content-center md:grid space-y-6">
       <figure>
         <div className="grid grid-flow-col items-center">
           <h1 className="tk-ivypresto-display text-neutral-100 text-6xl md:text-8xl flex flex-col tracking-wide">
@@ -63,7 +63,7 @@ export default function Home() {
           className="text-yellow-400 hover:text-yellow-500 underline underline-offset-4"
           href="/blog"
         >
-          Blog
+          Blog in Persian
         </Link>
       </nav>
       <p className="max-w-md my-4 text-neutral-400 leading-relaxed text-sm">
